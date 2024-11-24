@@ -8,6 +8,7 @@
 	list-style: none;
 	text-decoration: none;
 	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 :root {
@@ -59,8 +60,8 @@ body {
 
 #app {
 	background: var(--color-bg-black);
-	height: 48rem;
-	width: 24rem;
+	/* height: 80vh; */
+	width: 90vw;
 	padding: 2rem 1.6rem;
 	overflow-y: scroll;
 	position: relative;

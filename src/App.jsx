@@ -6,7 +6,7 @@ import EditNote from "./pages/EditNote";
 
 function App() {
 	return (
-		<div>
+		<div id="app">
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Notes />} />

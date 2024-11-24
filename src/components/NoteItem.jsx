@@ -16,6 +16,3 @@ const NoteItem = ({ note }) => {
 };
 
 export default NoteItem;
-
-
-com.CardinalDev.Aora
