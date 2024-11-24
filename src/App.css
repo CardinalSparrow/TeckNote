@@ -20,7 +20,7 @@
 }
 
 body {
-	font-family: "Montserrat", sans-serif;
+	/* font-family: "Montserrat", sans-serif; */
 	display: grid;
 	place-items: center;
 	color: var(--color-white);
@@ -65,17 +65,9 @@ body {
 	padding: 2rem 1.6rem;
 	overflow-y: scroll;
 	position: relative;
+	border-radius: 2rem;
 }
 
 ::-webkit-scrollbar {
 	display: none;
-}
-
-h2,
-h4 {
-	font-weight: 500;
-}
-
-h2 {
-	font-size: 2rem;
 }
