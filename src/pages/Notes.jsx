@@ -19,7 +19,7 @@ const Notes = () => {
 					<NoteItem key={note.id} note={note} />
 				))}
 			</div>
-			<Link className="btn fixed bottom-16 right-28 p-4">
+			<Link to="/new-note" className="btn fixed bottom-16 right-28 p-4">
 				<BsPlusLg />
 			</Link>
 		</section>

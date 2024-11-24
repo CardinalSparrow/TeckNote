@@ -7,9 +7,11 @@ const NoteItem = ({ note }) => {
 	return (
 		<Link
 			to={`/edit/${note.id}`}
-			className="bg-primary p-4 flex flex-col gap-4 cursor-pointer transition-all color-white"
+			className="bg-secondary p-4 flex flex-col gap-4 cursor-pointer transition-all color-white"
 		>
-			<h4>{note.title}</h4>
+			<h4>
+				{note.title.length > 50 ? note.title.substr(0, 50) + "..." : note.title}
+			</h4>
 			<p>{note.date}</p>
 		</Link>
 	);
