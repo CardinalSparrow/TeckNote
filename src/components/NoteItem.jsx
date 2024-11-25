@@ -6,13 +6,14 @@ const NoteItem = ({ note }) => {
 	};
 	return (
 		<Link
+			style={{ backgroundColor: note.bgColor, color: note.txtColor }}
 			to={`/edit/${note.id}`}
-			className="bg-secondary p-4 flex flex-col gap-4 cursor-pointer transition-all color-white"
+			className="bg-secondary p-4 flex flex-col gap-4 cursor-pointer transition-all"
 		>
-			<h4>
+			<h4 className="font-pextrabold text-3xl">
 				{note.title.length > 50 ? note.title.substr(0, 50) + "..." : note.title}
 			</h4>
-			<p>{note.date}</p>
+			<p className="font-pmedium text-xl">{note.date}</p>
 		</Link>
 	);
 };
