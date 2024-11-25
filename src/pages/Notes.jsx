@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { CiSearch } from "react-icons/ci";
 // import dummyNotes from "../dummy_notes";
 import { Link } from "react-router-dom";

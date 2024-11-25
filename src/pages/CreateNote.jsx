@@ -13,7 +13,7 @@ const CreateNote = ({
 	const [title, setTitle] = useState("");
 	const [details, setDetails] = useState("");
 	const date = useCreateDate();
-	// const [bgColor, setBgColor] = useState("white"); // Default color is white
+	// const [bgColor, setBgColor] = useState("white");
 
 	const navigate = useNavigate();
 	const handleSubmit = (e) => {
@@ -25,7 +25,8 @@ const CreateNote = ({
 
 			setTitle("");
 			setDetails("");
-
+			setBgColor("white");
+			setTxtColor("black");
 			navigate("/");
 		}
 	};
@@ -40,13 +41,13 @@ const CreateNote = ({
 					<IoIosArrowBack />
 				</Link>
 				<button
-					className="rounded-xl p-4 text-2xl shadow-black transition-all  bottom-16 right-28  border-solid border-2  bg-secondary hover:bg-white hover:text-secondary"
+					className="rounded-xl p-4 text-2xl shadow-black transition-all  bottom-16 right-28  border-solid border-2  bg-green-700 hover:bg-white hover:text-green-700"
 					onClick={handleSubmit}
 				>
 					Save
 				</button>
 			</header>
-			<form className="flex flex-col gap-8 mt-8">
+			<form className="flex flex-col gap-6 mt-6">
 				<input
 					value={title}
 					onChange={(e) => {
@@ -62,7 +63,7 @@ const CreateNote = ({
 					onChange={(e) => setDetails(e.target.value)}
 					rows="30"
 					placeholder="Write your note..."
-					className="p-4 bg-transparent rounded-2xl text-xl border-2 border-solid font-pregular  "
+					className="p-3 bg-transparent rounded-2xl text-xl border-2 border-solid font-pregular  "
 				/>
 				<div className="flex items-center gap-4">
 					<label htmlFor="bgColor" className="text-xl font-medium">

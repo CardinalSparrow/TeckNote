@@ -3,15 +3,21 @@ import "./App.css";
 import Notes from "./pages/Notes";
 import CreateNote from "./pages/CreateNote";
 import EditNote from "./pages/EditNote";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-	const [notes, setNotes] = useState([]);
+	const [notes, setNotes] = useState(
+		JSON.parse(localStorage.getItem("notes")) || []
+	);
 
 	const [bgColor, setBgColor] = useState("white"); // Default color
 	const [txtColor, setTxtColor] = useState("black"); // Default color
 
 	console.log(notes);
+
+	useEffect(() => {
+		localStorage.setItem("notes", JSON.stringify(notes));
+	}, [notes]);
 
 	return (
 		<div id="app">
@@ -41,7 +47,19 @@ function App() {
 							/>
 						}
 					/>
-					<Route path="/edit/:id" element={<EditNote />} />
+					<Route
+						path="/edit/:id"
+						element={
+							<EditNote
+								notes={notes}
+								setNotes={setNotes}
+								bgColor={bgColor}
+								setBgColor={setBgColor}
+								txtColor={txtColor}
+								setTxtColor={setTxtColor}
+							/>
+						}
+					/>
 				</Routes>
 			</BrowserRouter>
 		</div>
