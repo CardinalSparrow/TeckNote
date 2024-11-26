@@ -17,13 +17,13 @@ const EditNote = ({
 	const [title, setTitle] = useState(noteToEdit.title);
 	const [details, setDetails] = useState(noteToEdit.details);
 	const date = useCreateDate();
-	// const [bgColor, setBgColor] = useState("white"); // Default color is white
-
+	// const [bgColor, setBgColor] = useState(noteToEdit.bgColor);
+	// const [txtColor, txtColor] = useState(noteToEdit.txtColor);
 	const navigate = useNavigate();
 
 	const handleEdit = (e) => {
 		e.preventDefault();
-		if (title && details) {
+		if (title && details && bgColor && txtColor) {
 			const note = { ...noteToEdit, title, details, date, bgColor, txtColor };
 
 			const updatedNotes = notes.map((item) => {
@@ -38,9 +38,11 @@ const EditNote = ({
 	};
 
 	const handleDelete = () => {
-		const updatedNotes = notes.filter((item) => item.id != id);
-		setNotes(updatedNotes);
-		navigate("/");
+		if (window.confirm("Are you sure you want to delete this note?")) {
+			const updatedNotes = notes.filter((item) => item.id != id);
+			setNotes(updatedNotes);
+			navigate("/");
+		}
 	};
 
 	return (
