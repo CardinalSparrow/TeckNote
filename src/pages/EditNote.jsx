@@ -3,37 +3,39 @@ import { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import useCreateDate from "../hooks/useCreateDate";
-const EditNote = ({
-	notes,
-	setNotes,
-	bgColor,
-	setBgColor,
-	txtColor,
-	setTxtColor,
-}) => {
+const EditNote = ({ notes, setNotes }) => {
 	const { id } = useParams();
+
 	const noteToEdit = notes.find((note) => note.id == id);
 
 	const [title, setTitle] = useState(noteToEdit.title);
 	const [details, setDetails] = useState(noteToEdit.details);
+	const [bgColor, setBgColor] = useState(noteToEdit.bgColor);
+	const [txtColor, setTxtColor] = useState(noteToEdit.txtColor);
 	const date = useCreateDate();
-	// const [bgColor, setBgColor] = useState(noteToEdit.bgColor);
-	// const [txtColor, txtColor] = useState(noteToEdit.txtColor);
+
 	const navigate = useNavigate();
 
 	const handleEdit = (e) => {
 		e.preventDefault();
 		if (title && details && bgColor && txtColor) {
-			const note = { ...noteToEdit, title, details, date, bgColor, txtColor };
+			const updatedNote = {
+				...noteToEdit,
+				title,
+				details,
+				date,
+				bgColor,
+				txtColor,
+			};
 
-			const updatedNotes = notes.map((item) => {
-				if (item.id == id) {
-					item = note;
-				}
-				return item;
-			});
-			setNotes(updatedNotes);
-			navigate("/");
+			// Create a new array with the edited note at the beginning
+			const updatedNotes = [
+				updatedNote,
+				...notes.filter((item) => item.id !== id), // Remove the old version
+			];
+
+			setNotes(updatedNotes); // Update the notes state with the reordered array
+			navigate("/"); // Redirect to the home page
 		}
 	};
 
@@ -55,19 +57,19 @@ const EditNote = ({
 					<IoIosArrowBack />
 				</Link>
 				<button
-					className="rounded-xl p-4 text-2xl shadow-black transition-all  bottom-16 right-28  border-solid border-2  bg-green-700 hover:bg-white hover:text-green-700"
+					className="rounded-xl p-4 sm:text-2xl shadow-black transition-all  bottom-16 right-28  border-solid border-2  bg-green-700 hover:bg-white hover:text-green-700"
 					onClick={handleEdit}
 				>
 					Update Note
 				</button>
 				<button
-					className="rounded-xl p-4 text-2xl shadow-black transition-all  bottom-16 right-28  border-solid border-2  bg-red-700 hover:bg-white hover:text-red-700"
+					className="rounded-xl p-4 sm:text-2xl shadow-black transition-all  bottom-16 right-28  border-solid border-2  bg-red-700 hover:bg-white hover:text-red-700"
 					onClick={handleDelete}
 				>
 					Delete Note
 				</button>
 			</header>
-			<form className="flex flex-col gap-8 mt-8">
+			<form className="flex flex-col gap-8 mt-8 w-full ">
 				<input
 					value={title}
 					onChange={(e) => {
@@ -76,14 +78,14 @@ const EditNote = ({
 					type="text"
 					placeholder="Title"
 					autoFocus
-					className="p-4 bg-transparent rounded-2xl text-2xl border-2 border-solid font-pextrabold "
+					className="p-4 bg-transparent rounded-2xl sm:text-2xl text-xl border-2 border-solid font-pextrabold "
 				/>
 				<textarea
 					value={details}
 					onChange={(e) => setDetails(e.target.value)}
-					rows="30"
+					rows="25"
 					placeholder="Write your note..."
-					className="p-4 bg-transparent rounded-2xl text-xl border-2 border-solid font-pregular  "
+					className="p-4 bg-transparent rounded-2xl sm:text-xl text-lg border-2 border-solid font-pregular  "
 				/>
 				<div className="flex items-center gap-4">
 					<label htmlFor="bgColor" className="text-xl font-medium">
@@ -120,7 +122,7 @@ const EditNote = ({
 					</select>
 				</div>
 				<div className="flex items-center gap-4">
-					<label htmlFor="bgColor" className="text-xl font-medium">
+					<label htmlFor="txtColor" className="text-xl font-medium">
 						Select Text Color:
 					</label>
 					<select

@@ -20,21 +20,10 @@ function App() {
 	}, [notes]);
 
 	return (
-		<div id="app">
+		<div id="app" className="h-full w-full">
 			<BrowserRouter>
 				<Routes>
-					<Route
-						path="/"
-						element={
-							<Notes
-								notes={notes}
-								// bgColor={bgColor}
-								// setBgColor={setBgColor}
-								// txtColor={txtColor}
-								// setTxtColor={setTxtColor}
-							/>
-						}
-					/>
+					<Route path="/" element={<Notes notes={notes} />} />
 					<Route
 						path="/new-note"
 						element={
@@ -49,16 +38,7 @@ function App() {
 					/>
 					<Route
 						path="/edit/:id"
-						element={
-							<EditNote
-								notes={notes}
-								setNotes={setNotes}
-								bgColor={bgColor}
-								setBgColor={setBgColor}
-								txtColor={txtColor}
-								setTxtColor={setTxtColor}
-							/>
-						}
+						element={<EditNote notes={notes} setNotes={setNotes} />}
 					/>
 				</Routes>
 			</BrowserRouter>

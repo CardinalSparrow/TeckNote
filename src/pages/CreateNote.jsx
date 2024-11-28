@@ -13,7 +13,6 @@ const CreateNote = ({
 	const [title, setTitle] = useState("");
 	const [details, setDetails] = useState("");
 	const date = useCreateDate();
-	// const [bgColor, setBgColor] = useState("white");
 
 	const navigate = useNavigate();
 	const handleSubmit = (e) => {
@@ -41,7 +40,7 @@ const CreateNote = ({
 					<IoIosArrowBack />
 				</Link>
 				<button
-					className="rounded-xl p-4 text-2xl shadow-black transition-all  bottom-16 right-28  border-solid border-2  bg-green-700 hover:bg-white hover:text-green-700"
+					className="rounded-xl p-4 sm:text-2xl shadow-black transition-all  bottom-16 right-28  border-solid border-2  bg-green-700 hover:bg-white hover:text-green-700"
 					onClick={handleSubmit}
 				>
 					Save
@@ -56,14 +55,14 @@ const CreateNote = ({
 					type="text"
 					placeholder="Title"
 					autoFocus
-					className="p-4 bg-transparent rounded-2xl text-2xl border-2 border-solid font-pextrabold "
+					className="p-4 bg-transparent rounded-2xl sm:text-2xl text-xl border-2 border-solid font-pextrabold "
 				/>
 				<textarea
 					value={details}
 					onChange={(e) => setDetails(e.target.value)}
-					rows="30"
+					rows="25"
 					placeholder="Write your note..."
-					className="p-3 bg-transparent rounded-2xl text-xl border-2 border-solid font-pregular  "
+					className="p-3 bg-transparent rounded-2xl sm:text-xl text-lg border-2 border-solid font-pregular  "
 				/>
 				<div className="flex items-center gap-4">
 					<label htmlFor="bgColor" className="text-xl font-medium">
