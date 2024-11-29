@@ -34,19 +34,19 @@ const CreateNote = ({
 		<section>
 			<header className="flex justify-between items-center">
 				<Link
-					className=" rounded-xl p-4 text-2xl shadow-black transition-all  bottom-16 right-28  border-solid border-2  bg-secondary hover:bg-white hover:text-secondary"
+					className=" rounded-xl p-2 text-sm shadow-black transition-all  bottom-16 right-28  border-solid border  bg-secondary hover:bg-white hover:text-secondary"
 					to="/"
 				>
 					<IoIosArrowBack />
 				</Link>
 				<button
-					className="rounded-xl p-4 sm:text-2xl shadow-black transition-all  bottom-16 right-28  border-solid border-2  bg-green-700 hover:bg-white hover:text-green-700"
+					className="rounded-xl p-2 text-sm shadow-black transition-all  bottom-16 right-28  border-solid border  bg-green-700 hover:bg-white hover:text-green-700"
 					onClick={handleSubmit}
 				>
 					Save
 				</button>
 			</header>
-			<form className="flex flex-col gap-6 mt-6">
+			<form className="flex flex-col gap-4 mt-5">
 				<input
 					value={title}
 					onChange={(e) => {
@@ -55,24 +55,24 @@ const CreateNote = ({
 					type="text"
 					placeholder="Title"
 					autoFocus
-					className="p-4 bg-transparent rounded-2xl sm:text-2xl text-xl border-2 border-solid font-pextrabold "
+					className="p-2 bg-transparent rounded-xl text-md border border-solid border-gray-500 font-pextrabold "
 				/>
 				<textarea
 					value={details}
 					onChange={(e) => setDetails(e.target.value)}
-					rows="25"
+					rows="20"
 					placeholder="Write your note..."
-					className="p-3 bg-transparent rounded-2xl sm:text-xl text-lg border-2 border-solid font-pregular  "
+					className="p-3 bg-transparent rounded-2xl text-sm border border-solid border-gray-500 font-pregular"
 				/>
-				<div className="flex items-center gap-4">
-					<label htmlFor="bgColor" className="text-xl font-medium">
+				<div className="flex items-center gap-2">
+					<label htmlFor="bgColor" className="text-sm font-medium">
 						Select Background Color:
 					</label>
 					<select
 						id="bgColor"
 						value={bgColor}
 						onChange={(e) => setBgColor(e.target.value)}
-						className="p-2 border-2 border-solid rounded-lg text-lg font-pbold"
+						className="p-1 border border-solid rounded-lg text-sm font-pbold bg-primary"
 					>
 						<option value="white" style={{ color: "gray" }}>
 							⚪ White
@@ -96,17 +96,21 @@ const CreateNote = ({
 						<option value="violet" style={{ color: "violet" }}>
 							🟣 Violet
 						</option>
+
+						<option value="black" style={{ color: "black" }}>
+							⚫ Black
+						</option>
 					</select>
 				</div>
 				<div className="flex items-center gap-4">
-					<label htmlFor="bgColor" className="text-xl font-medium">
+					<label htmlFor="bgColor" className="text-sm font-medium">
 						Select Text Color:
 					</label>
 					<select
 						id="txtColor"
 						value={txtColor}
 						onChange={(e) => setTxtColor(e.target.value)}
-						className="p-2 border-2 border-solid rounded-lg text-lg font-pbold"
+						className="p-1 border border-solid rounded-lg text-sm font-pbold bg-primary"
 					>
 						<option value="black" style={{ color: "black" }}>
 							⚫ Black

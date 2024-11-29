@@ -38,30 +38,34 @@ const Notes = ({ notes }) => {
 
 	return (
 		<section>
-			<header className="fixed top-0 left-0 w-full flex items-center justify-center gap-8 p-6  bg-primary z-20 shadow-md">
-				{!showSearch && <h2 className="font-pbold text-3xl">TEKNOTE...</h2>}
-				{showSearch && (
-					<input
-						className="bg-transparent p-3 border-primary border-solid rounded-lg text-white text-2xl w-full mr-6"
-						type="text"
-						autoFocus
-						placeholder="Keyword..."
-						aria-label="Search Notes"
-						onChange={(e) => {
-							setText(e.target.value);
-							handleSearch();
-						}}
-					/>
-				)}
-				<button
-					className="bg-black-200 rounded-2xl text-2xl p-3 color-white shadow-md transition-all hover:cursor-pointer hover:shadow-none hover:scale-125"
-					onClick={() => setShowSearch((prevState) => !prevState)}
-					aria-label={showSearch ? "Close Search" : "Open Search"}
-				>
-					{showSearch ? <GrClose className="text-red-700 " /> : <CiSearch />}
-				</button>
+			<header className="fixed top-0 left-0 w-full flex items-center justify-center gap-8  z-20 shadow-md">
+				<div className=" flex justify-between bg-primary  sm:p-5 p-2 sm:w-[40rem] w-full h-full">
+					{!showSearch && <h2 className="font-pbold text-2xl">TEKNOTE...</h2>}
+					{showSearch && (
+						<input
+							className="bg-transparent  border-primary border-solid rounded-lg text-white text-xl w-[30rem]"
+							type="text"
+							autoFocus
+							placeholder="Keyword..."
+							aria-label="Search Notes"
+							onChange={(e) => {
+								setText(e.target.value);
+								handleSearch();
+							}}
+						/>
+					)}
+
+					<button
+						className="bg-black-200 rounded-lg text-sm p-2 color-white shadow-md transition-all hover:cursor-pointer hover:shadow-none hover:scale-125"
+						onClick={() => setShowSearch((prevState) => !prevState)}
+						aria-label={showSearch ? "Close Search" : "Open Search"}
+					>
+						{showSearch ? <GrClose className="text-red-700 " /> : <CiSearch />}
+					</button>
+				</div>
 			</header>
-			<div className="grid grid-cols-2 sm:gap-5 gap-2 pt-20 sm:pt-2">
+
+			<div className="grid sm:grid-cols-3 grid-cols-2  gap-1 sm:pt-2 pt-5">
 				{filteredNotes.length == 0 && (
 					<p className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2">
 						No notes found
@@ -73,9 +77,9 @@ const Notes = ({ notes }) => {
 			</div>
 			<Link
 				to="/new-note"
-				className="flex items-center gap-4 sm:font-pbold font-pregular text-sm rounded-xl p-4 sm:text-2xl shadow-2xl transition-all fixed bottom-16 right-28  border-solid border-2 bg-primary hover:bg-white hover:text-primary"
+				className="flex items-center gap-4 sm:font-pbold font-pregular  rounded-xl p-2 sm:text-lg shadow-2xl transition-all fixed lg:bottom-8 bottom-2 right-12  border-solid border-2 bg-primary hover:bg-white hover:text-primary"
 			>
-				<h2>New Note</h2>
+				<h2 className="hidden sm:block">New Note</h2>
 
 				<BsPlusLg />
 			</Link>

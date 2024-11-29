@@ -20,23 +20,12 @@
 }
 
 body {
-	/* font-family: "Montserrat", sans-serif; */
 	display: grid;
 	place-items: center;
 	color: var(--color-white);
 	background: #ccc;
 	line-height: 1.5;
 	height: 100vh;
-}
-
-.btn {
-	/* background: var(--color-bg-dark); */
-	border-radius: 0.8rem;
-	padding: 0.8rem;
-	font-size: 1.6rem;
-	color: var(--color-white);
-	box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
-	transition: all 300ms ease;
 }
 
 .btn.lg {
@@ -60,12 +49,13 @@ body {
 
 #app {
 	background: var(--color-bg-black);
-	height: 80vh;
-	width: 60vw;
-	padding: 2rem 1.6rem;
+	height: 85vh;
+	width: 40rem;
+	/* width: 30rem; */
+	padding: 1rem;
 	overflow-y: scroll;
 	position: relative;
-	border-radius: 2rem;
+	border-radius: 0.5rem;
 }
 
 ::-webkit-scrollbar {
