@@ -65,7 +65,7 @@ const Notes = ({ notes }) => {
 				</div>
 			</header>
 
-			<div className="grid sm:grid-cols-3 grid-cols-2  gap-1 sm:pt-2 pt-5">
+			<div className="grid sm:grid-cols-3 grid-cols-2  gap-1 sm:pt-2 mb-4 pt-5">
 				{filteredNotes.length == 0 && (
 					<p className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2">
 						No notes found
