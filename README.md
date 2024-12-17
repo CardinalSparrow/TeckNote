@@ -21,4 +21,4 @@
 - **Icons:** React Icons
 - **Routing:** React Router DOM
 
-## Live on 🚀
+## Live on🚀 [myteknote](https://myteknote.netlify.app/)
